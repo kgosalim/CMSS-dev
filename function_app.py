@@ -9,7 +9,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     print('testing')
     name = req.params.get('name')
     print(name)
-
+    a = 1
     if not name:
         try:
             req_body = req.get_json()
