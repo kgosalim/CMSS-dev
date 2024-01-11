@@ -11,6 +11,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     print(name)
     a = 1
     b = 2
+    c = 3
     if not name:
         try:
             req_body = req.get_json()
