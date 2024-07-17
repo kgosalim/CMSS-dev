@@ -9,10 +9,9 @@ logger = logging.getLogger()
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
-@app.route(route="http_trigger")
+@app.function_name(name="http_trigger")
+@app.route(route="http_trigger") # Standard route without custom path
 def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
-    print("this works")
-
 
     logging.info('Python HTTP trigger function processed a request.')
 
@@ -29,7 +28,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
     else:
         return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             "Tim helped",
              status_code=200
         )
 
